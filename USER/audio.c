@@ -39,13 +39,13 @@ void power_led_control(){
 	
 	
 	//close power led	when twinkle three times	
-	GPIO_ResetBits(GPIOC,GPIO_Pin_13);//open led
-	delay_ms(100);
+//	GPIO_ResetBits(GPIOC,GPIO_Pin_13);//open led
+//	delay_ms(100);
 	GPIO_SetBits(GPIOC,GPIO_Pin_13);//close led
 	delay_ms(100);
 	
 	GPIO_ResetBits(GPIOC,GPIO_Pin_13);
-	delay_ms(100);
+//	delay_ms(100);
 //	GPIO_SetBits(GPIOC,GPIO_Pin_13);
 //	delay_ms(500);
 //	

@@ -38,3 +38,4 @@
 ..\obj\main.o: delay.h
 ..\obj\main.o: ..\SYSTEM\sys\sys.h
 ..\obj\main.o: key.h
+..\obj\main.o: LCD5110.h

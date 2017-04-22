@@ -9,10 +9,12 @@
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
 #define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define KEY0 PBin(6)   //PB6
+#define KEY0 PBin(12)   //PB6
 #define KEY1 PBin(8)	//PB8 
 #define KEY2 PBin(9)	//PB9
+#define KEY3 PBin(13)	//PB0
+#define KEY4 PBin(14)	//PB1
 	 
 void KEY_Init(void);//IO初始化
-u16   KEY_Scan(void);  //按键扫描函数
+//u16   KEY_Scan(void);  //按键扫描函数
 #endif

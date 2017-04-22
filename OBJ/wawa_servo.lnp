@@ -10,6 +10,7 @@
 "..\obj\debug.o"
 "..\obj\delay.o"
 "..\obj\key.o"
+"..\obj\lcd5110.o"
 "..\obj\sys.o"
 "..\obj\stm32f10x_dma.o"
 "..\obj\core_cm3.o"
