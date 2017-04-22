@@ -1,0 +1,98 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: tiejiang tiejiang, tiejiang, LIC=DSNNN-Y82D4-MQI0F-6Q0EX-58IHZ-3KFW8
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  D:\MDK\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DARMSTM.DLL V1.65.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
+Dialog DLL:      TARMSTM.DLL V1.64.0.0
+ 
+<h2>Project:</h2>
+E:\2617\wawa机器人\servo\USER\wawa1.uvprojx
+Project File Date:  08/12/2016
+
+<h2>Output:</h2>
+Rebuild target 'wawa1'
+compiling main.c...
+audio.h(5): warning:  #1295-D: Deprecated declaration power_led_control - give arg types
+  void power_led_control();
+audio.h(6): warning:  #1295-D: Deprecated declaration delay - give arg types
+  void delay();
+main.c(240): warning:  #223-D: function "abs" declared implicitly
+                                        yAngleChange = abs(pre3YAngle[i] - yAngleKeep);
+main.c(271): warning:  #223-D: function "abs" declared implicitly
+                                if (abs(xAngleChange) < 0x40)
+main.c(222): warning:  #177-D: variable "bottomAdjustPwm" was declared but never referenced
+        s16 bottomAdjustPwm;
+main.c(323): warning:  #550-D: variable "value" was set but never used
+        double value = 0;
+main.c(456): warning:  #111-D: statement is unreachable
+                        break;
+main.c(1114): warning:  #940-D: missing return statement at end of non-void function "feelWrongedStatus"
+  } 
+main.c(1278): warning:  #177-D: variable "reverse" was declared but never referenced
+        s8 reverse=0;
+main.c(1279): warning:  #177-D: variable "targeBottomPwm" was declared but never referenced
+        u16 targeBottomPwm = 0;
+main.c(1281): warning:  #177-D: variable "test" was declared but never referenced
+        u16 test = 0;
+main.c(1282): warning:  #177-D: variable "zAngle" was declared but never referenced
+        s16 zAngle = 0;
+main.c: 12 warnings, 0 errors
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling servo.c...
+compiling imu.c...
+compiling audio.c...
+audio.h(5): warning:  #1295-D: Deprecated declaration power_led_control - give arg types
+  void power_led_control();
+audio.h(6): warning:  #1295-D: Deprecated declaration delay - give arg types
+  void delay();
+audio.c: 2 warnings, 0 errors
+compiling comunicate.c...
+compiling sys.c...
+compiling stm32f10x_dma.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+compiling misc.c...
+linking...
+Program Size: Code=11380 RO-data=268 RW-data=148 ZI-data=2740  
+FromELF: creating hex file...
+"..\OBJ\Templete.axf" - 0 Error(s), 14 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.0-Beta4.pack
+                ARM::CMSIS:CORE:5.0.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.0
+
+<h2>Collection of Component include folders:</h2>
+  E:\2617\wawa机器人\servo\USER\RTE
+  D:\MDK\ARM\PACK\ARM\CMSIS\5.0.0-Beta4\CMSIS\Include
+  D:\MDK\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.0
+</pre>
+</body>
+</html>

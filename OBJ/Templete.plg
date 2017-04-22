@@ -1,0 +1,425 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\wawa1.uvproj
+Project File Date:  08/24/2015
+
+<h2>Output:</h2>
+Build target 'wawa1'
+compiling main.c...
+main.c(224): warning:  #223-D: function "delay_init" declared implicitly
+main.c:         delay_init();
+main.c:         ^
+main.c(287): warning:  #128-D: loop is not reachable from preceding code
+main.c:         while(1)
+main.c:         ^
+main.c(220): warning:  #177-D: variable "j" was declared but never referenced
+main.c:         u16 i=0,j=0;
+main.c:                 ^
+main.c(596): warning:  #223-D: function "delay_ms" declared implicitly
+main.c:                 delay_ms(2000);
+main.c:                 ^
+main.c: main.c: 4 warnings, 0 errors
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling servo.c...
+compiling imu.c...
+compiling bluetooth.c...
+compiling delay.c...
+compiling usart.c...
+compiling sys.c...
+compiling core_cm3.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+compiling misc.c...
+linking...
+Program Size: Code=19700 RO-data=268 RW-data=108 ZI-data=1748  
+"..\OBJ\Templete.axf" - 0 Error(s), 4 Warning(s).
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.228V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Hardware-Breakpoints: 6
+Software-Breakpoints: 2048
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'wawa1'
+compiling main.c...
+main.c(224): warning:  #223-D: function "delay_init" declared implicitly
+main.c:         delay_init();
+main.c:         ^
+main.c(287): warning:  #128-D: loop is not reachable from preceding code
+main.c:         while(1)
+main.c:         ^
+main.c(220): warning:  #177-D: variable "j" was declared but never referenced
+main.c:         u16 i=0,j=0;
+main.c:                 ^
+main.c(596): warning:  #223-D: function "delay_ms" declared implicitly
+main.c:                 delay_ms(2000);
+main.c:                 ^
+main.c: main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=19712 RO-data=268 RW-data=108 ZI-data=1748  
+"..\OBJ\Templete.axf" - 0 Error(s), 4 Warning(s).
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.313V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Hardware-Breakpoints: 6
+Software-Breakpoints: 2048
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'wawa1'
+compiling main.c...
+main.c(224): warning:  #223-D: function "delay_init" declared implicitly
+main.c:         delay_init();
+main.c:         ^
+main.c(287): warning:  #128-D: loop is not reachable from preceding code
+main.c:         while(1)
+main.c:         ^
+main.c(220): warning:  #177-D: variable "j" was declared but never referenced
+main.c:         u16 i=0,j=0;
+main.c:                 ^
+main.c(596): warning:  #223-D: function "delay_ms" declared implicitly
+main.c:                 delay_ms(2000);
+main.c:                 ^
+main.c: main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=19712 RO-data=268 RW-data=108 ZI-data=1748  
+"..\OBJ\Templete.axf" - 0 Error(s), 4 Warning(s).
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.313V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Hardware-Breakpoints: 6
+Software-Breakpoints: 2048
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'wawa1'
+compiling main.c...
+main.c(224): warning:  #223-D: function "delay_init" declared implicitly
+main.c:         delay_init();
+main.c:         ^
+main.c(287): warning:  #128-D: loop is not reachable from preceding code
+main.c:         while(1)
+main.c:         ^
+main.c(220): warning:  #177-D: variable "j" was declared but never referenced
+main.c:         u16 i=0,j=0;
+main.c:                 ^
+main.c(596): warning:  #223-D: function "delay_ms" declared implicitly
+main.c:                 delay_ms(2000);
+main.c:                 ^
+main.c: main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=19712 RO-data=268 RW-data=108 ZI-data=1748  
+"..\OBJ\Templete.axf" - 0 Error(s), 4 Warning(s).
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+**JLink Warning: No matching core found.
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+***JLink Error: Parity error (Data = 0xFFFFFFFF, ReceivedParity = 1)
+***JLink Error: Could not start CPU core. (ErrorCode: -1)
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+**JLink Warning: No matching core found.
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+***JLink Error: Parity error (Data = 0xFFFFFFFF, ReceivedParity = 1)
+***JLink Error: Could not start CPU core. (ErrorCode: -1)
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+**JLink Warning: No matching core found.
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+***JLink Error: Parity error (Data = 0xFFFFFFFF, ReceivedParity = 1)
+***JLink Error: Could not start CPU core. (ErrorCode: -1)
+Build target 'wawa1'
+linking...
+Program Size: Code=19712 RO-data=268 RW-data=108 ZI-data=1748  
+"..\OBJ\Templete.axf" - 0 Error(s), 0 Warning(s).
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+**JLink Warning: No matching core found.
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+* JLink Info: SYSRESETREQ has confused core. Trying to reconnect and use VECTRESET.
+**JLink Warning: Failed to reset CPU. VECTRESET has confused core.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: Core is locked-up, trying to disable WDT.
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+* JLink Info: CPU core locked up
+* JLink Info: CPU halted
+**JLink Warning: S_RESET_ST not cleared
+***JLink Error: Parity error (Data = 0xFFFFFFFF, ReceivedParity = 1)
+***JLink Error: Could not start CPU core. (ErrorCode: -1)
+Load "..\\OBJ\\Templete.AXF" 
+Set JLink Project File to "F:\研究生阶段\项目区\Wawa\program -protocol2\program-protocol2\USER\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.15n, compiled Jun 18 2010 19:55:09
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 270676280 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash,GDBFULL 
+ 
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+ 
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.313V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 1, TRES: 1, TRST: 1
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Hardware-Breakpoints: 6
+Software-Breakpoints: 2048
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found SWD-DP with ID 0x1BA01477
+* JLink Info: TPIU fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...
+Build target 'wawa1'
+compiling main.c...
+main.c(224): warning:  #223-D: function "delay_init" declared implicitly
+main.c:         delay_init();
+main.c:         ^
+main.c(287): warning:  #128-D: loop is not reachable from preceding code
+main.c:         while(1)
+main.c:         ^
+main.c(220): warning:  #177-D: variable "j" was declared but never referenced
+main.c:         u16 i=0,j=0;
+main.c:                 ^
+main.c(596): warning:  #223-D: function "delay_ms" declared implicitly
+main.c:                 delay_ms(2000);
+main.c:                 ^
+main.c: main.c: 4 warnings, 0 errors
+linking...
+Program Size: Code=19700 RO-data=268 RW-data=108 ZI-data=1748  
+"..\OBJ\Templete.axf" - 0 Error(s), 4 Warning(s).

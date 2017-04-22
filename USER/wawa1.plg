@@ -1,0 +1,343 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\elvis\Desktop\Templete\USER\Templete.uvproj
+Project File Date:  08/16/2015
+
+<h2>Output:</h2>
+Build target 'Templete'
+compiling main.c...
+stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:     ^
+stm32f10x.h: main.c: 0 warnings, 1 error
+compiling stm32f10x_it.c...
+stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:     ^
+stm32f10x.h: stm32f10x_it.c: 0 warnings, 1 error
+compiling system_stm32f10x.c...
+stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:     ^
+stm32f10x.h: system_stm32f10x.c: 0 warnings, 1 error
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(175): error:  #20: identifier "uint32_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(176): error:  #20: identifier "uint32_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     uint32_t tmpreg = 0x00, pinmask = 0x00;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(183): error:  #20: identifier "uint32_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                     ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(183): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(183): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                                                       ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(184): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                     ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(184): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                                              ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(189): error:  #65: expected a ";"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:       currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(193): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                    ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(198): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:         pos = ((uint32_t)0x01) << pinpos;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                          ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(205): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:           pinmask = ((uint32_t)0x0F) << pos;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(212): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:             GPIOx->BRR = (((uint32_t)0x01) << pinpos);
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                      ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(219): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:               GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                         ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(233): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:         pos = (((uint32_t)0x01) << (pinpos + 0x08));
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                           ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(240): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:           pinmask = ((uint32_t)0x0F) << pos;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(247): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:             GPIOx->BRR = (((uint32_t)0x01) << (pinpos + 0x08));
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                      ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(252): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:             GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                       ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(281): error:  #20: identifier "uint8_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:   ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(281): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                                      ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(283): error:  #20: identifier "uint8_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     uint8_t bitstatus = 0x00;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(289): error:  #20: identifier "uint32_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                     ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(289): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                                              ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(291): error:  #20: identifier "uint8_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_SET;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                    ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(291): error:  #65: expected a ";"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_SET;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                            ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(295): error:  #20: identifier "uint8_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_RESET;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                    ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(295): error:  #65: expected a ";"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:       bitstatus = (uint8_t)Bit_RESET;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                            ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(297): warning:  #1166-D: returning pointer to local variable
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     return bitstatus;
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:            ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(305): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:   uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:   ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(310): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     return ((uint16_t)GPIOx->IDR);
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:              ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(310): error:  #18: expected a ")"
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:     return ((uint16_t)GPIOx->IDR);
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:                       ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c(320): error:  #20: identifier "uint8_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:   uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c:   ^
+..\STM32F10x_FWLib\src\stm32f10x_gpio.c: ..\STM32F10x_FWLib\src\stm32f10x_gpio.c: 1 warning, 30 errors
+compiling stm32f10x_tim.c...
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(77): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                             ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(77): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI1_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                                                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(78): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(79): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                             ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(79): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI2_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                                                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(80): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(81): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                             ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(81): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI3_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                                                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(82): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(83): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                             ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(83): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:   static void TI4_Config(TIM_TypeDef* TIMx, uint16_t TIM_ICPolarity, uint16_t TIM_ICSelection,
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                                                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(84): error:  #20: identifier "uint16_t" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          uint16_t TIM_ICFilter);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                          ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(167): error:  #20: identifier "TIM9" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM9)
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(169): error:  #20: identifier "RCC_APB2Periph_TIM9" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM9, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(172): error:  #20: identifier "TIM10" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM10)
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(174): error:  #20: identifier "RCC_APB2Periph_TIM10" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM10, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(177): error:  #20: identifier "TIM11" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM11) 
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(179): error:  #20: identifier "RCC_APB2Periph_TIM11" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM11, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(182): error:  #20: identifier "TIM12" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM12)
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(184): error:  #20: identifier "RCC_APB1Periph_TIM12" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM12, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(187): error:  #20: identifier "TIM13" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM13) 
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(189): error:  #20: identifier "RCC_APB1Periph_TIM13" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM13, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(192): error:  #20: identifier "TIM14" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM14) 
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(194): error:  #20: identifier "RCC_APB1Periph_TIM14" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB1PeriphResetCmd(RCC_APB1Periph_TIM14, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(197): error:  #20: identifier "TIM15" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM15)
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(199): error:  #20: identifier "RCC_APB2Periph_TIM15" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM15, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(202): error:  #20: identifier "TIM16" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:     else if (TIMx == TIM16)
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                      ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(204): error:  #20: identifier "RCC_APB2Periph_TIM16" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM16, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                              ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(209): error:  #20: identifier "TIM17" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:       if (TIMx == TIM17)
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                   ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c(211): error:  #20: identifier "RCC_APB2Periph_TIM17" is undefined
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:         RCC_APB2PeriphResetCmd(RCC_APB2Periph_TIM17, ENABLE);
+..\STM32F10x_FWLib\src\stm32f10x_tim.c:                                ^
+..\STM32F10x_FWLib\src\stm32f10x_tim.c: ..\STM32F10x_FWLib\src\stm32f10x_tim.c: 0 warnings, 30 errors
+Target not created
+Build target 'Templete'
+compiling main.c...
+stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:     ^
+stm32f10x.h: main.c: 0 warnings, 1 error
+compiling stm32f10x_it.c...
+stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:     ^
+stm32f10x.h: stm32f10x_it.c: 0 warnings, 1 error
+compiling system_stm32f10x.c...
+stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+stm32f10x.h:     ^
+stm32f10x.h: system_stm32f10x.c: 0 warnings, 1 error
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
+..\USER\stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+..\USER\stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+..\USER\stm32f10x.h:     ^
+..\USER\stm32f10x.h: ..\STM32F10x_FWLib\src\stm32f10x_gpio.c: 0 warnings, 1 error
+compiling stm32f10x_tim.c...
+..\USER\stm32f10x.h(96): error:  #35: #error directive: "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+..\USER\stm32f10x.h:    #error "Please select first the target STM32F10x device used in your application (in stm32f10x.h file)"
+..\USER\stm32f10x.h:     ^
+..\USER\stm32f10x.h: ..\STM32F10x_FWLib\src\stm32f10x_tim.c: 0 warnings, 1 error
+Target not created
+Build target 'Templete'
+compiling main.c...
+main.c(24): error:  #5: cannot open source input file "stm32_eval.h": No such file or directory
+main.c:   #include "stm32_eval.h"
+main.c:                          ^
+main.c: main.c: 0 warnings, 1 error
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_tim.c...
+Target not created
+Build target 'Templete'
+compiling main.c...
+main.c(102): warning:  #223-D: function "STM_EVAL_LEDInit" declared implicitly
+main.c:     STM_EVAL_LEDInit(LED1);
+main.c:     ^
+main.c(102): error:  #20: identifier "LED1" is undefined
+main.c:     STM_EVAL_LEDInit(LED1);
+main.c:                      ^
+main.c(103): error:  #20: identifier "LED2" is undefined
+main.c:     STM_EVAL_LEDInit(LED2);
+main.c:                      ^
+main.c(104): error:  #20: identifier "LED3" is undefined
+main.c:     STM_EVAL_LEDInit(LED3);
+main.c:                      ^
+main.c(105): error:  #20: identifier "LED4" is undefined
+main.c:     STM_EVAL_LEDInit(LED4);
+main.c:                      ^
+main.c(122): warning:  #223-D: function "STM_EVAL_COMInit" declared implicitly
+main.c:     STM_EVAL_COMInit(COM1, &USART_InitStructure);
+main.c:     ^
+main.c(122): error:  #20: identifier "COM1" is undefined
+main.c:     STM_EVAL_COMInit(COM1, &USART_InitStructure);
+main.c:                      ^
+main.c(139): warning:  #223-D: function "LCD_Clear" declared implicitly
+main.c:     LCD_Clear(LCD_COLOR_WHITE);
+main.c:     ^
+main.c(139): error:  #20: identifier "LCD_COLOR_WHITE" is undefined
+main.c:     LCD_Clear(LCD_COLOR_WHITE);
+main.c:               ^
+main.c(142): warning:  #223-D: function "LCD_SetBackColor" declared implicitly
+main.c:     LCD_SetBackColor(LCD_COLOR_BLUE);
+main.c:     ^
+main.c(142): error:  #20: identifier "LCD_COLOR_BLUE" is undefined
+main.c:     LCD_SetBackColor(LCD_COLOR_BLUE);
+main.c:                      ^
+main.c(144): warning:  #223-D: function "LCD_SetTextColor" declared implicitly
+main.c:     LCD_SetTextColor(LCD_COLOR_WHITE);
+main.c:     ^
+main.c(145): warning:  #223-D: function "LCD_DisplayStringLine" declared implicitly
+main.c:     LCD_DisplayStringLine(LCD_LINE_0, (uint8_t *)MESSAGE1);
+main.c:     ^
+main.c(145): error:  #20: identifier "LCD_LINE_0" is undefined
+main.c:     LCD_DisplayStringLine(LCD_LINE_0, (uint8_t *)MESSAGE1);
+main.c:                           ^
+main.c(145): error:  #20: identifier "MESSAGE1" is undefined
+main.c:     LCD_DisplayStringLine(LCD_LINE_0, (uint8_t *)MESSAGE1);
+main.c:                                                  ^
+main.c(146): error:  #20: identifier "LCD_LINE_1" is undefined
+main.c:     LCD_DisplayStringLine(LCD_LINE_1, (uint8_t *)MESSAGE2);
+main.c:                           ^
+main.c(146): error:  #20: identifier "MESSAGE2" is undefined
+main.c:     LCD_DisplayStringLine(LCD_LINE_1, (uint8_t *)MESSAGE2);
+main.c:                                                  ^
+main.c(147): error:  #20: identifier "LCD_LINE_2" is undefined
+main.c:     LCD_DisplayStringLine(LCD_LINE_2, (uint8_t *)MESSAGE3);
+main.c:                           ^
+main.c(147): error:  #20: identifier "MESSAGE3" is undefined
+main.c:     LCD_DisplayStringLine(LCD_LINE_2, (uint8_t *)MESSAGE3);
+main.c:                                                  ^
+main.c(156): warning:  #223-D: function "STM_EVAL_LEDOn" declared implicitly
+main.c:     STM_EVAL_LEDOn(LED1);
+main.c:     ^
+main.c(179): error:  #20: identifier "EVAL_COM1" is undefined
+main.c:     USART_SendData(EVAL_COM1, (uint8_t) ch);
+main.c:                    ^
+main.c: main.c: 7 warnings, 14 errors
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_tim.c...
+Target not created
+Build target 'Templete'
+compiling main.c...
+main.c(24): error:  #5: cannot open source input file "stm32_eval.h": No such file or directory
+main.c:   #include "stm32_eval.h"
+main.c:                          ^
+main.c: main.c: 0 warnings, 1 error
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling core_cm3.c...
+assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_tim.c...
+Target not created
