@@ -349,7 +349,7 @@ void middleStartTimer(u16 ms_2)
 		TIM_SetCompare2(TIM2, curCounter + ms_2);  //使得和下一个事件有相同的翻转周期
 		TIM_ITConfig(TIM2, TIM_IT_CC2, ENABLE);
 	}
-	middleTimerStart = 1;
+//	middleTimerStart = 1;
 }
 
 void middleStopTimer(void)
@@ -393,12 +393,12 @@ void headServoSpeedGo(u16 PWM,int speed) //speed approm 10
 	headReached = 0;
 	headStartTimer(headGetRunTime(headCurPos, PWM));	
 	HServoGo(headCurPos=PWM);	
+	
 }
 // 2617
 u16 i = PWM_ANGLE_ZERO;
 void headServoSpeedGoSlowly(u16 PWM,int speed) //speed approm 10
 {
-//	u16 i = PWM_ANGLE_ZERO;
 	// speed is not used now
 	headReached = 0;
 	headStartTimer(headGetRunTimeSlowly(headCurPos, PWM));	
@@ -423,6 +423,10 @@ void headServoSpeedGoSlowly(u16 PWM,int speed) //speed approm 10
 //	}
 	//printf("value_i: %d\n", i);
 	headCurPos=PWM;
+//	headCurPos=0;
+//	headTimerStart = 0;
+	headReached = 1;
+//	i = PWM_ANGLE_ZERO;
 	//HServoGo(headCurPos=PWM);	
 }
 

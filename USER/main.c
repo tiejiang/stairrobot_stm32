@@ -62,45 +62,52 @@ void RCC_Configuration(void)
 	while(RCC_GetSYSCLKSource() != 0x08){}
 }
 
+u16 addAngle = PWM_ANGLE_ZERO;
 void Key_Action(void)
 {
 	switch(key)
   	{
 	   case 1:
-	   		{
-//			   Stop_Flag = 1;
-//			   if(Key_Flag == 2)
-//			   	  SetTemp--;
-//			   else if(Key_Flag == 4)
-//			   	  SetHuti--; 
-//				  						
-//			   Show_SetTemp_Huti();	 
-					power_led_control();
-			  headServoSpeedGoSlowly(3000, 100);
-				headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-			} break;
+//					power_led_control();
+//					headServoSpeedGoSlowly(3000, 100);
+//					if(addAngle < 3000){
+//						addAngle += 100;
+//						headServoSpeedGoSlowly(addAngle, 100);	
+//					}else{
+//						addAngle = PWM_ANGLE_ZERO;				
+//						headServoSpeedGoSlowly(addAngle, 100);	
+//					}
+//				headServoSpeedGo(PWM_ANGLE_ZERO, 100);
+//					headStopTimer();
+				break;
 	   case 2:
-	   		{
-//			   Stop_Flag = 1;
-//			   if(Key_Flag == 1)
-//			      SetTemp++;
-//			   else if(Key_Flag == 3)
-//			      SetHuti++;
-
-//			   Show_SetTemp_Huti();	
 					power_led_control();
-			headServoSpeedGoSlowly(3000, 100);				
-			headServoSpeedGo(PWM_ANGLE_ZERO, 100);					
-			} break;
-	   case 3:
-	   		{
-//			 Key_Flag++;
-//			 if(Stop_Flag == 1)
-//			    Key_Flag = 5; 	
+//					headServoSpeedGoSlowly(1000, 100);				
+					if(addAngle > 800){
+						addAngle -= 100;
+						headServoSpeedGoSlowly(addAngle, 100);	
+					}else{
+						addAngle = PWM_ANGLE_ZERO;				
+						headServoSpeedGoSlowly(addAngle, 100);	
+					}
+					key = 0;
+//			headServoSpeedGo(PWM_ANGLE_ZERO, 100);		
+//			headStopTimer();					
+				break;
+	   case 3: 
 					power_led_control();
-			 headServoSpeedGoSlowly(3000, 100);				
-			 headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-			} break;
+//					headServoSpeedGoSlowly(3000, 100);
+					if(addAngle < 3000){
+						addAngle += 100;
+						headServoSpeedGoSlowly(addAngle, 100);	
+					}else{
+						addAngle = PWM_ANGLE_ZERO;				
+						headServoSpeedGoSlowly(addAngle, 100);	
+					}
+					key = 0;
+//				headServoSpeedGo(PWM_ANGLE_ZERO, 100);
+//					headStopTimer();
+				break;
 	   default:
 	          break;
 	}
@@ -185,7 +192,7 @@ int main(void)
 	{		
 		key = KEY_Scan();
 		Key_Action();		 		
-
+		delay_ms(100);
 	}
 }
 
