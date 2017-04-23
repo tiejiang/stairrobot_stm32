@@ -1,20 +1,37 @@
 #ifndef __KEY_H
-#define __KEY_H
-#define PBout(n)   BIT_ADDR(GPIOB_ODR_Addr,n)  //输出 
-#define PBin(n)    BIT_ADDR(GPIOB_IDR_Addr,n)  //输入 
-#define GPIOB_IDR_Addr    (GPIOB_BASE+8) //0x40011008
-#define GPIOB_ODR_Addr    (GPIOB_BASE+12) //0x4001100C 
+#define __KEY_H	 
+#include "sys.h"
+//////////////////////////////////////////////////////////////////////////////////	 
+//本程序只供学习使用，未经作者许可，不得用于其它任何用途
+//ALIENTEK战舰STM32开发板
+//按键驱动代码	   
+//正点原子@ALIENTEK
+//技术论坛:www.openedv.com
+//修改日期:2012/9/3
+//版本：V1.0
+//版权所有，盗版必究。
+//Copyright(C) 广州市星翼电子科技有限公司 2009-2019
+//All rights reserved									  
+//////////////////////////////////////////////////////////////////////////////////   	 
 
-#define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
-#define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
-#define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
 
-#define KEY0 PBin(12)   //PB6
-#define KEY1 PBin(8)	//PB8 
-#define KEY2 PBin(9)	//PB9
-#define KEY3 PBin(13)	//PB0
-#define KEY4 PBin(14)	//PB1
-	 
+//#define KEY0 PEin(4)   	//PE4
+//#define KEY1 PEin(3)	//PE3 
+//#define KEY2 PEin(2)	//PE2
+//#define KEY3 PAin(0)	//PA0  WK_UP
+
+#define KEY0  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_8)//读取按键0
+#define KEY1  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_9)//读取按键1
+#define KEY2  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_12)//读取按键2 
+#define KEY3  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_13)//读取按键3(WK_UP) 
+#define KEY4  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_14)
+
+
+#define KEY_UP 		4
+#define KEY_LEFT	3
+#define KEY_DOWN	2
+#define KEY_RIGHT	1
+
 void KEY_Init(void);//IO初始化
-//u16   KEY_Scan(void);  //按键扫描函数
+u8 KEY_Scan(u8);  	//按键扫描函数					    
 #endif

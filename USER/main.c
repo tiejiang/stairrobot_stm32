@@ -35,7 +35,7 @@ volatile u8 keepAngleState = 0; //added by 2617
 ///* mode variant */
 u8 curCmdType2Value = 0; //added by 2617
 u8 curCmdType2CmdIndex = 0; //added by 2617
-u16 key = 0;  //键盘扫描值
+u8 key = 0;  //键盘扫描值
 //Loobot pet mode
 extern u8 Loobot_Pet_Mode ;
 
@@ -91,121 +91,105 @@ u32 middle_left = 0;
 u32 middle_right = 0;
 void Key_Action(void)
 {
-	switch(key)
-  	{
-	   case 2:
-					power_led_control();
-//					headServoSpeedGoSlowly(1000, 100);				
-					if(headAngle > 800){
-						headAngle -= 100;
-						head_right += 6;
-						headServoSpeedGoSlowly(headAngle, 100);	
-					}else{
-						headAngle = PWM_ANGLE_ZERO;				
-						head_right = 0;
-						headServoSpeedGoSlowly(headAngle, 100);	
-					}
-					LCD5110ShowNum(70,3,head_right);
-					key = 0;
-//			headServoSpeedGo(PWM_ANGLE_ZERO, 100);		
-			headStopTimer();					
-				break;
-	   case 3: 
-					power_led_control();
-//					headServoSpeedGoSlowly(3000, 100);
-					if(headAngle < 3000){
-						headAngle += 100;
-						head_left += 6;
-						
-						headServoSpeedGoSlowly(headAngle, 100);	
-					}else{
-						headAngle = PWM_ANGLE_ZERO;		
-						head_left = 0;
-						headServoSpeedGoSlowly(headAngle, 100);	
-					}
-					LCD5110ShowNum(70,2,head_left);
-					key = 0;
-//				headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-					headStopTimer();
-				break;
-			case 1:
-					power_led_control();
-//					middleServoSpeedGoSlowly(3000, 100);
-					if(middleAngle < 3000){
-						middleAngle += 100;
-						middle_left += 6;
-						middleServoSpeedGoSlowly(middleAngle, 100);	
-					}else{
-						middleAngle = PWM_ANGLE_ZERO;				
-						middle_left = 0;
-						middleServoSpeedGoSlowly(middleAngle, 100);	
-					}
-					LCD5110ShowNum(70,4,middle_left);
-					key = 0;
-					middleStopTimer();
-				break;
-			case 4: 
-					power_led_control();
-//					middleServoSpeedGoSlowly(800, 100);
-					if(middleAngle > 800){
-						middleAngle -= 100;
-						middle_right += 6;
-						middleServoSpeedGoSlowly(middleAngle, 100);	
-					}else{
-						middleAngle = PWM_ANGLE_ZERO;				
-						middle_right = 0;
-						middleServoSpeedGoSlowly(middleAngle, 100);	
-					}
-					LCD5110ShowNum(70,5,middle_right);
-					key = 0;
-					middleStopTimer();
-					break;
-			case 5: 
-						power_led_control();
-						headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-						middleServoSpeedGo(PWM_ANGLE_ZERO, 100);
-						key = 0;
-					break;
-			 default:
+//	if(key){
+		switch(key)
+				{
+				 case 2:
+							power_led_control();
+		//					headServoSpeedGoSlowly(1000, 100);				
+							if(headAngle > 800){
+								headAngle -= 100;
+								if(head_right < head_left){
+									head_left = head_left - 6;
+									LCD5110ShowNum(70,2,head_right);
+								}else{
+									head_right += 6;
+								}								
+								headServoSpeedGoSlowly(headAngle, 100);	
+							}else{
+								headAngle = PWM_ANGLE_ZERO;				
+								head_right = 0;
+								headServoSpeedGoSlowly(headAngle, 100);	
+							}
+							LCD5110ShowNum(70,3,head_right);
+		//			headServoSpeedGo(PWM_ANGLE_ZERO, 100);		
+					headStopTimer();					
+						break;
+				 case 3: 
+							power_led_control();
+		//					headServoSpeedGoSlowly(3000, 100);
+							if(headAngle < 3000){
+								headAngle += 100;
+								if(head_left < head_right){
+									head_right = head_right - 6;
+									LCD5110ShowNum(70,3,head_right);
+								}else{
+									head_left += 6;
+								}									
+								headServoSpeedGoSlowly(headAngle, 100);	
+							}else{
+								headAngle = PWM_ANGLE_ZERO;		
+								head_left = 0;
+								headServoSpeedGoSlowly(headAngle, 100);	
+							}
+							LCD5110ShowNum(70,2,head_left);
+		//				headServoSpeedGo(PWM_ANGLE_ZERO, 100);
+							headStopTimer();
+						break;
+					case 1:
+							power_led_control();
+		//					middleServoSpeedGoSlowly(3000, 100);
+							if(middleAngle < 3000){
+								middleAngle += 100;
+								if(middle_left < middle_right){
+									middle_right = middle_right - 6;
+									LCD5110ShowNum(70,5,middle_right);
+								}else{
+									middle_left += 6;
+								}
+								middleServoSpeedGoSlowly(middleAngle, 100);	
+							}else{
+								middleAngle = PWM_ANGLE_ZERO;				
+								middle_left = 0;
+								middleServoSpeedGoSlowly(middleAngle, 100);	
+							}
+							LCD5110ShowNum(70,4,middle_left);
+							middleStopTimer();
+						break;
+					case 4: 
+							power_led_control();
+		//					middleServoSpeedGoSlowly(800, 100);
+							if(middleAngle > 800){
+								middleAngle -= 100;
+								if(middle_right < middle_left){
+									middle_left = middle_left - 6;
+									LCD5110ShowNum(70,4,middle_left);
+								}else{
+									middle_right += 6;
+								}
+								middleServoSpeedGoSlowly(middleAngle, 100);	
+							}else{
+								middleAngle = PWM_ANGLE_ZERO;				
+								middle_right = 0;
+								middleServoSpeedGoSlowly(middleAngle, 100);	
+							}
+							LCD5110ShowNum(70,5,middle_right);
+							middleStopTimer();
 							break;
-	}
-}
-
-u16 KEY_Scan(void)
-{	 
-	static u8 key_up=1;//按键按松开标志	
- 
-	if(key_up&&(KEY0==0||KEY1==0||KEY2==0||KEY3==0||KEY4==0))
-	{
-		delay_ms(10);//去抖动 
-		key_up=0;
-		if(KEY0==0)
-		{
-			return 1;
-		}
-		else if(KEY1==0)
-		{ 
-	     	
-			return 2;
-		}
-		else if(KEY2==0)
-		{
-	    	
-			return 3;
-		}
-		else if(KEY3==0)
-		{
-	    	
-			return 4;
-		}
-		else if(KEY4==0)
-		{
-			return 5;
-		}
-	}else if(KEY0==1&&KEY1==1&&KEY2==1&&KEY3==1&&KEY4==1)key_up=1; 	    
- 
- 
-	return 0;// 无按键按下
+					case 5: 
+								power_led_control();
+								headServoSpeedGo(PWM_ANGLE_ZERO, 100);
+								middleServoSpeedGo(PWM_ANGLE_ZERO, 100);
+								LCD5110ShowNum(70,2,0.0);
+								LCD5110ShowNum(70,3,0.0);
+								LCD5110ShowNum(70,4,0.0);
+								LCD5110ShowNum(70,5,0.0);
+						break;
+			}		
+//	}else{
+//			delay_ms(10);
+//	}
+	
 }
 
 int main(void)
@@ -226,6 +210,7 @@ int main(void)
 //	bluetoothInit();
 	audioInit(); 
 	delay_init();		//added by 2617
+	KEY_Init();
 //	power_led_control(); //added by 2617
 	
 	servoInit();
@@ -237,74 +222,14 @@ int main(void)
 	LCD5110ShowNum(70,2,0.0);
 	LCD5110ShowNum(70,3,0.0);
 	LCD5110ShowNum(70,4,0.0);
-	LCD5110ShowNum(70,5,0.0);
-//	headServoSpeedGoSlowly(BODY_FRONT_HALF_PWM, 100);
-//	headServoSpeedGoSlowly(3000, 100);
-//	
-//	middleServoSpeedGoSlowly(3000, 100);
-
-
-	//reset head & bottom servos first
-//	imuUartEnable();   //接6050数据的UART1 使能
-	
-	//start the receiver from host
-//	bluetoothUartEnable();
-//	curCmdType2Value = 0;
-//	curCmdType2CmdIndex = 1;
-	
-//	headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-//	bottomServoSpeedGo(PWM_ANGLE_ZERO, 100, 0);
-//	while (1)
-//	{
-//		newBottomPwm = avoidKnock();
-//		if (newBottomPwm != 0)
-//			BServoGo(newBottomPwm);
-//		if (headReached == 1)
-//			break;
-//	}
-//	BServoGo(0);   //TIM3通道3  PWM=0
-
-	//reset middle servo second
-//	middleRotateStart = 2;
-
-
-//	headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-//	middleServoSpeedGo(PWM_ANGLE_ZERO, 100);
-	
-
-//	power_led_control(); //added by 2617
-//	while (1)
-//	{
-//		if (middleReached == 1)
-//			break;
-//	}
-//	
-//	middleRotateStart = 0;		
-
-	//default mode is stand idle
-//	balanceMode = STAND_BALANCE;
-	#ifdef DEBUG
-	//  HServoGo(BODY_BACK_HALF_PWM); //added by 2617
-	//HServoGo(BODY_FRONT_HALF_PWM); //added by 2617
-//		printf("test--2617 \r\n");
-//		printf("test--2617 \r\n");
-//		printf("test end --2617 \r\n");
-	#endif	
+	LCD5110ShowNum(70,5,0.0);	
 	
 	while(1)
 	{		
-		key = KEY_Scan();
-		
+		key = KEY_Scan(0);
 //		printf("%c, %d\r\n", 'D', key);
 		Key_Action();		 		
-		delay_ms(10);
-		
-//		if(key == 1){
-//			power_led_control();
-//		}else if(key == 5){
-//			power_led_control();
-//		}
-		
+//		power_led_control();
 	}
 }
 

@@ -29,5 +29,5 @@
 ..\obj\key.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\key.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\key.o: key.h
-..\obj\key.o: delay.h
 ..\obj\key.o: ..\SYSTEM\sys\sys.h
+..\obj\key.o: delay.h
