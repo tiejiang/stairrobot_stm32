@@ -464,11 +464,11 @@ ARM Macro Assembler    Page 8
               00000000 
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=..\obj\s
-tartup_stm32f10x_md.d -o..\obj\startup_stm32f10x_md.o -IH:\F_data\外包\本科毕业
-设计制作\2017届\，，，，，-天线转台\项目开发\servo\USER\RTE -ID:\MDK5\Keil_v5\A
-RM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include -ID:\MDK5\Keil_v5\ARM\PACK\Keil\STM32F1x
-x_DFP\1.0.4\Device\Include --predefine="__MICROLIB SETA 1" --list=.\startup_stm
-32f10x_md.lst ..\CORE\startup_stm32f10x_md.s
+tartup_stm32f10x_md.d -o..\obj\startup_stm32f10x_md.o -IE:\stairproject\mpu6050
+-stmc8t6-new-version\USER\RTE -ID:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Incl
+ude -ID:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include --predefine="
+__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --list=.\startup_stm32f10x_md.ls
+t ..\CORE\startup_stm32f10x_md.s
 
 
 
@@ -1175,4 +1175,4 @@ Symbol: __main
       At line 135 in file ..\CORE\startup_stm32f10x_md.s
 Comment: __main used once
 2 symbols
-403 symbols in table
+404 symbols in table

@@ -440,11 +440,6 @@
               <FilePath>.\comunicate.c</FilePath>
             </File>
             <File>
-              <FileName>dance_action_storage.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\dance_action_storage.c</FilePath>
-            </File>
-            <File>
               <FileName>debug.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\debug.c</FilePath>

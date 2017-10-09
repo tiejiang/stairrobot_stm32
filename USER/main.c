@@ -1,8 +1,6 @@
 
 #include <stm32f10x.h>
 //#include <math.h>
-#include "servo.h"
-#include "imu.h"
 #include "comunicate.h"
 #include "audio.h"
 #include "stdio.h"
@@ -11,39 +9,90 @@
 #include "delay.h"
 #include "key.h"
 #include "LCD5110.h"
+//#include "stm32f10x_lib.h"
+#include  <math.h>    //Keil library 
+#include "mpu6050.h"
+#include "moto.h"
+#include "sys.h"
 
-//DEBUG MODE
-//#define DEBUG
+//GPIO_InitTypeDef GPIO_InitStructure;
+ErrorStatus HSEStartUpStatus;
 
-///* imu uart */
-extern volatile u8 newImuData;
-extern s16 gAcc[],angleSpeed[],angle[];
-///* bt uart */
-extern volatile u8 CmdTp;// flag for Bluetooth Command Type: 0 - Unknown yet,1 - basic Instrution, 2 - defined motion
-extern volatile u8 newCmdType2Value;
-///* servo */
-extern volatile u8 headReached,middleReached;//,bottomReached;//flags indicate reach given pos or not 
-/* send OK */
-u8 OK_RSP[] = "OK";
-////current position in unit of servo count 
-volatile u16 headCurPos = 0,middleCurPos = 0,bottomCurPos = 0;
-////0: rotate is not started, 1: normal rotated, 2:poweron status
-extern volatile u8 middleRotateStart; //added by 2617
-volatile u8 needCheckAngle = 0;//added by2617
-volatile u8 checkStableStatus; //added by 2617
-volatile u8 keepAngleState = 0; //added by 2617
-///* mode variant */
-u8 curCmdType2Value = 0; //added by 2617
-u8 curCmdType2CmdIndex = 0; //added by 2617
-u8 key = 0;  //键盘扫描值
-//Loobot pet mode
-extern u8 Loobot_Pet_Mode ;
+#define   uchar unsigned char
+#define   uint unsigned int	
 
-char TITLE[18] = "ANTENNA ROTATE";
-char HEAD_LEFT[11] = "head_left:";
-char HEAD_RIGHT[11] = "head_right:";
-char MID_LEFT[10] = "mid_left:";
-char MID_RIGHT[10] = "mid_right:";
+/* 函数申明 -----------------------------------------------*/
+//void RCC_Configuration(void);
+//void GPIO_Configuration(void);
+void NVIC_Configuration(void);
+//void USART1_Configuration(void);
+//void WWDG_Configuration(void);
+void Delay(u32 nTime);
+void Delayms(vu32 m);  
+void RCC_Configuration(void);
+/* 变量定义 ----------------------------------------------*/				      
+
+/*
+********************************************************************************
+** 函数名称 ： RCC_Configuration(void)
+** 函数功能 ： 时钟初始化
+** 输    入	： 无
+** 输    出	： 无
+** 返    回	： 无
+********************************************************************************
+*/
+//void RCC_Configuration(void)
+//{   
+//  /* RCC system reset(for debug purpose) */
+//  RCC_DeInit();
+
+//  /* Enable HSE */
+//  RCC_HSEConfig(RCC_HSE_ON);
+
+//  /* Wait till HSE is ready */
+//  HSEStartUpStatus = RCC_WaitForHSEStartUp();
+
+//  if(HSEStartUpStatus == SUCCESS)
+//  {
+//    /* HCLK = SYSCLK */
+//    RCC_HCLKConfig(RCC_SYSCLK_Div1); 
+//  
+//    /* PCLK2 = HCLK */
+//    RCC_PCLK2Config(RCC_HCLK_Div1); 
+
+//    /* PCLK1 = HCLK/2 */
+//    RCC_PCLK1Config(RCC_HCLK_Div2);
+
+//    /* Flash 2 wait state */
+//    FLASH_SetLatency(FLASH_Latency_2);
+//    /* Enable Prefetch Buffer */
+//    FLASH_PrefetchBufferCmd(FLASH_PrefetchBuffer_Enable);
+
+//    /* PLLCLK = 8MHz * 9 = 72 MHz */
+//    RCC_PLLConfig(RCC_PLLSource_HSE_Div1, RCC_PLLMul_9);
+
+//    /* Enable PLL */ 
+//    RCC_PLLCmd(ENABLE);
+
+//    /* Wait till PLL is ready */
+//    while(RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET)
+//    {
+//    }
+
+//    /* Select PLL as system clock source */
+//    RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+
+//    /* Wait till PLL is used as system clock source */
+//    while(RCC_GetSYSCLKSource() != 0x08)
+//    {
+//    }
+//  } 
+//   /* Enable GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG and AFIO clocks */
+//  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB , ENABLE);
+//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD , ENABLE);
+//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE | RCC_APB2Periph_GPIOF , ENABLE);
+////	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOG | RCC_APB2Periph_AFIO  , ENABLE);  
+//}
 
 /*******************************************************************************
 * Function Name  : RCC_Configuration
@@ -67,169 +116,156 @@ void RCC_Configuration(void)
 	// 0x04：HSE作为系统时钟
 	// 0x08：PLL作为系统时钟
 	while(RCC_GetSYSCLKSource() != 0x08){}
+   /* Enable GPIOA, GPIOB, GPIOC, GPIOD, GPIOE, GPIOF, GPIOG and AFIO clocks */
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB , ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD , ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE | RCC_APB2Periph_GPIOF , ENABLE);
+//	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOG | RCC_APB2Periph_AFIO  , ENABLE);
 }
-//Nokia5110显示屏初始化
-void Show_Init(void)
+
+/*
+********************************************************************************
+** 函数名称 ： NVIC_Configuration(void)
+** 函数功能 ： 中断初始化
+** 输    入	： 无
+** 输    出	： 无
+** 返    回	： 无
+********************************************************************************
+*/
+//void NVIC_Configuration(void)
+//{ 
+//  NVIC_InitTypeDef NVIC_InitStructure;  
+//  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0); 
+// 
+////  NVIC_InitStructure.NVIC_IRQChannel = WWDG_IRQChannel;
+//  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+//  NVIC_Init(&NVIC_InitStructure);
+
+//}
+
+ /*
+********************************************************************************
+** 函数名称 ： WWDG_Configuration(void)
+** 函数功能 ： 看门狗初始化
+** 输    入	： 无
+** 输    出	： 无
+** 返    回	： 无
+********************************************************************************
+*/
+//void WWDG_Configuration(void)
+//{
+//  RCC_APB1PeriphClockCmd(RCC_APB1Periph_WWDG, ENABLE);	
+//  WWDG_SetPrescaler(WWDG_Prescaler_8);	              //  WWDG clock counter = (PCLK1/4096)/8 = 244 Hz (~4 ms)  
+//  WWDG_SetWindowValue(0x41);		                 // Set Window value to 0x41
+//  WWDG_Enable(0x50);		       // Enable WWDG and set counter value to 0x7F, WWDG timeout = ~4 ms * 64 = 262 ms 
+//  WWDG_ClearFlag();			       // Clear EWI flag
+//  WWDG_EnableIT();			       // Enable EW interrupt
+//}
+
+/*
+********************************************************************************
+** 函数名称 ： Delay(vu32 nCount)
+** 函数功能 ： 延时函数
+** 输    入	： 无
+** 输    出	： 无
+** 返    回	： 无
+********************************************************************************
+*/
+ void Delay(vu32 nCount)
 {
-	LCD5110Clear();
-	LCD5110WriteEnStr(0, 0, (u8 *)TITLE);
-	LCD5110WriteEnStr(0, 2, (u8 *)HEAD_LEFT);//"Right_DIS"	
-	LCD5110WriteEnStr(0, 3, (u8 *)HEAD_RIGHT);//"Right_DIS"	
-	LCD5110WriteEnStr(0, 4,(u8 *)MID_LEFT);
-	LCD5110WriteEnStr(0, 5,(u8 *)MID_RIGHT);
+  for(; nCount != 0; nCount--);
 }
 
-u16 headAngle = PWM_ANGLE_ZERO; // PWM_ANGLE_ZERO = 1675
-u16 middleAngle = PWM_ANGLE_ZERO;
-u32 head_left = 0;
-u32 head_right = 0;
-
-u32 angle_head = 0;
-u32 angle_middle = 0;
-
-u32 middle_left = 0;
-u32 middle_right = 0;
-void Key_Action(void)
+/*
+********************************************************************************
+** 函数名称 ： void Delayms(vu32 m)
+** 函数功能 ： 长延时函数	 m=1,延时1ms
+** 输    入	： 无
+** 输    出	： 无
+** 返    回	： 无
+********************************************************************************
+*/
+ void Delayms(vu32 m)
 {
-//	if(key){
-		switch(key)
-				{
-				 case 2:
-							power_led_control();
-		//					headServoSpeedGoSlowly(1000, 100);				
-							if(headAngle > 800){
-								headAngle -= 100;
-								if(head_right < head_left){
-									head_left = head_left - 6;
-									LCD5110ShowNum(70,2,head_right);
-								}else{
-									head_right += 6;
-								}								
-								headServoSpeedGoSlowly(headAngle, 100);	
-							}else{
-								headAngle = PWM_ANGLE_ZERO;				
-								head_right = 0;
-								headServoSpeedGoSlowly(headAngle, 100);	
-							}
-							LCD5110ShowNum(70,3,head_right);
-		//			headServoSpeedGo(PWM_ANGLE_ZERO, 100);		
-					headStopTimer();					
-						break;
-				 case 3: 
-							power_led_control();
-		//					headServoSpeedGoSlowly(3000, 100);
-							if(headAngle < 3000){
-								headAngle += 100;
-								if(head_left < head_right){
-									head_right = head_right - 6;
-									LCD5110ShowNum(70,3,head_right);
-								}else{
-									head_left += 6;
-								}									
-								headServoSpeedGoSlowly(headAngle, 100);	
-							}else{
-								headAngle = PWM_ANGLE_ZERO;		
-								head_left = 0;
-								headServoSpeedGoSlowly(headAngle, 100);	
-							}
-							LCD5110ShowNum(70,2,head_left);
-		//				headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-							headStopTimer();
-						break;
-					case 1:
-							power_led_control();
-		//					middleServoSpeedGoSlowly(3000, 100);
-							if(middleAngle < 3000){
-								middleAngle += 100;
-								if(middle_left < middle_right){
-									middle_right = middle_right - 6;
-									LCD5110ShowNum(70,5,middle_right);
-								}else{
-									middle_left += 6;
-								}
-								middleServoSpeedGoSlowly(middleAngle, 100);	
-							}else{
-								middleAngle = PWM_ANGLE_ZERO;				
-								middle_left = 0;
-								middleServoSpeedGoSlowly(middleAngle, 100);	
-							}
-							LCD5110ShowNum(70,4,middle_left);
-							middleStopTimer();
-						break;
-					case 4: 
-							power_led_control();
-		//					middleServoSpeedGoSlowly(800, 100);
-							if(middleAngle > 800){
-								middleAngle -= 100;
-								if(middle_right < middle_left){
-									middle_left = middle_left - 6;
-									LCD5110ShowNum(70,4,middle_left);
-								}else{
-									middle_right += 6;
-								}
-								middleServoSpeedGoSlowly(middleAngle, 100);	
-							}else{
-								middleAngle = PWM_ANGLE_ZERO;				
-								middle_right = 0;
-								middleServoSpeedGoSlowly(middleAngle, 100);	
-							}
-							LCD5110ShowNum(70,5,middle_right);
-							middleStopTimer();
-							break;
-					case 5: 
-								power_led_control();
-								headServoSpeedGo(PWM_ANGLE_ZERO, 100);
-								middleServoSpeedGo(PWM_ANGLE_ZERO, 100);
-								LCD5110ShowNum(70,2,0.0);
-								LCD5110ShowNum(70,3,0.0);
-								LCD5110ShowNum(70,4,0.0);
-								LCD5110ShowNum(70,5,0.0);
-						break;
-			}		
-//	}else{
-//			delay_ms(10);
-//	}
-	
+  u32 i;
+  
+  for(; m != 0; m--)	
+       for (i=0; i<50000; i++);
 }
 
+/*
+********************************************************************************
+** 函数名称 ： WWDG_IRQHandler(void)
+** 函数功能 ： 窗口提前唤醒中断
+** 输    入	： 无
+** 输    出	： 无
+** 返    回	： 无
+********************************************************************************
+*/ 
+
+//void WWDG_IRQHandler(void)
+//{
+//  /* Update WWDG counter */
+//  WWDG_SetCounter(0x50);
+//	
+//  /* Clear EWI flag */
+//  WWDG_ClearFlag(); 
+//}
+
+  /*
+********************************************************************************
+** 函数名称 ： main(void)
+** 函数功能 ： 主函数
+** 输    入	： 无
+** 输    出	： 无
+** 返    回	： 无
+********************************************************************************
+*/
 int main(void)
-{
-	//s8 reverse=0;
-	//u16 targeBottomPwm = 0;
-	u16 newBottomPwm = 0;
-	//u16 test = 0;
-	//s16 zAngle = 0;
-	u16 balanceMode = 0;
-	u16 blockTimes = 0;//avoid blocking while rotating	
-	//u32 balanceTimes = 0;
-	extern u32 balanceTimes;  //added by 2617
-	// System Clocks Configuration	
-	RCC_Configuration();
-	//u16 i = 1600;	
-//	imuInit();
-//	bluetoothInit();
-	audioInit(); 
-	delay_init();		//added by 2617
-	KEY_Init();
-//	power_led_control(); //added by 2617
+{ 
+	u32 change = 0;
+	u32 flag = 1000;
 	
-	servoInit();
-	LCD5110_GPIOInit();
-	Show_Init();	//Nokia5110初始显示内容	
-	
-	LCD5110ClearPart(60,4,80,4);			//清屏，为显示做准备
-	//显示距离数据
-	LCD5110ShowNum(70,2,0.0);
-	LCD5110ShowNum(70,3,0.0);
-	LCD5110ShowNum(70,4,0.0);
-	LCD5110ShowNum(70,5,0.0);	
-	
-	while(1)
-	{		
-		key = KEY_Scan(0);
-//		printf("%c, %d\r\n", 'D', key);
-		Key_Action();		 		
-//		power_led_control();
-	}
+  RCC_Configuration();		 //配置RCC
+  GPIO_Configuration();		 //配置GPIO
+  USART1_Configuration();	 //配置串口1
+	NVIC_Configuration(); 	 //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
+  I2C_GPIO_Config();		 //配置IIC使用端口
+  Delayms(10);				 //延时
+  Init_MPU6050();		     //初始化MPU6050
+	MotoInit();	
+
+
+  while(1)
+  {
+		READ_MPU6050();	         //读取MPU6050数据
+		DATA_printf_X_Y_Z();
+		Delayms(5);				 //延时
+		
+//		if(change){
+//			MotoAhead();
+//			change = 0;
+//		}else {
+//			MotoBack();
+//			change = 1;
+//		}
+//		
+//		while(flag < 19999){
+//			flag += 1;
+//			front_left_wheel(flag);  //CH1 - PB4
+////			Delayms(5);
+//		}		
+//			Delayms(3000);
+//		  flag = 1000;
+//		
+//		
+//			front_left_wheel(10000);  //CH1 - PB4
+//			front_right_wheel(15000);  //CH2 - PB5
+//			back_left_wheel(17000);  //CH3 - PB0
+//			back_right_wheel(18000);	//CH4 - PB1
+  }
 }
+
+
+
 

@@ -12,9 +12,9 @@
 //Copyright(C) 正点原子 2009-2019
 //All rights reserved
 //********************************************************************************  
-//void NVIC_Configuration(void)
-//{
-//
-//    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);	//设置NVIC中断分组2:2位抢占优先级，2位响应优先级
-//
-//}
+void NVIC_Configuration(void)
+{
+
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);	//设置NVIC中断分组2:2位抢占优先级，2位响应优先级
+
+}

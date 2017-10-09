@@ -454,6 +454,16 @@
               <FileType>1</FileType>
               <FilePath>.\Delay\delay.c</FilePath>
             </File>
+            <File>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCD5110.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LCD5110.C</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
