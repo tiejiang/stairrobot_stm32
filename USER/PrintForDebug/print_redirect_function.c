@@ -5,13 +5,13 @@ printf 重定向
 #include "stdio.h"
 
 // 发送数据
-int fputc(int ch, FILE *f)
-{
-	USART_SendData(USART3, (unsigned char) ch);
-	while (!(USART3->SR & USART_FLAG_TXE));
-//	while (!(USART3->SR & USART_FLAG_TC));
-	return (ch);
-}
+//int fputc(int ch, FILE *f)
+//{
+//	USART_SendData(USART3, (unsigned char) ch);
+//	while (!(USART3->SR & USART_FLAG_TXE));
+////	while (!(USART3->SR & USART_FLAG_TC));
+//	return (ch);
+//}
 
 // 接收数据
 int GetKey (void)  { 
