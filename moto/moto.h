@@ -23,8 +23,12 @@
 
 
 void MotoInit(void);
+void enableWheels(void);
+void disenableWheels(void);
 void MotoAhead(void);
 void MotoBack(void);
+void leftSidesway(void);
+void rightSidesway(void);
 
 //void headServoSpeedGo(u16 PWM,int speed);	
 //void headServoSpeedGoSlowly(u16 PWM,int speed);	

@@ -156,6 +156,32 @@ void MotoInit(void)
 //	NVIC_Init(&NVIC_InitStructure);
 }
 
+void enableWheels(){
+
+	front_left_wheel(10000);  //CH1 - PB4
+	front_right_wheel(10000);  //CH2 - PB5
+	back_left_wheel(10000);  //CH3 - PB0
+	back_right_wheel(10000);	//CH4 - PB1
+}
+
+void disenableWheels(){
+
+	front_left_wheel(0);  //CH1 - PB4
+	front_right_wheel(0);  //CH2 - PB5
+	back_left_wheel(0);  //CH3 - PB0
+	back_right_wheel(0);	//CH4 - PB1
+}
+
+/**
+*GPIO_Pin_0  
+*GPIO_Pin_1  left_front wheel
+*GPIO_Pin_2
+*GPIO_Pin_3	 right_front wheel
+*GPIO_Pin_4
+*GPIO_Pin_5  left_back wheel
+*GPIO_Pin_6
+*GPIO_Pin_7  right_back wheel
+*/
 void MotoAhead(){
 	
 	GPIO_SetBits(GPIOA, GPIO_Pin_0);
@@ -184,6 +210,36 @@ void MotoBack(){
 	
 	GPIO_SetBits(GPIOA, GPIO_Pin_7);
 	GPIO_ResetBits(GPIOA, GPIO_Pin_6);
+}
+
+void leftSidesway(){
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_1);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_0);
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_2);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_3);
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_4);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_5);
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_7);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_6);
+}
+
+void rightSidesway(){
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_0);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_1);
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_3);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_2);
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_5);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_4);;
+	
+	GPIO_SetBits(GPIOA, GPIO_Pin_6);
+	GPIO_ResetBits(GPIOA, GPIO_Pin_7);
 }
 
 

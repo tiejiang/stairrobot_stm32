@@ -132,12 +132,8 @@ int main(void)
 //		}		
 //			Delayms(3000);
 //		  flag = 1000;
-//		
-//		
-//			front_left_wheel(10000);  //CH1 - PB4
-//			front_right_wheel(15000);  //CH2 - PB5
-//			back_left_wheel(17000);  //CH3 - PB0
-//			back_right_wheel(18000);	//CH4 - PB1
+				
+
 //			printf("\r\n send the message \r\n\r\n");
 //		if(USART_RX_STA&0x8000)
 //		{	

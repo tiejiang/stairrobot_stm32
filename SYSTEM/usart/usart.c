@@ -1,5 +1,6 @@
 #include "sys.h"
-#include "usart.h"	  
+#include "usart.h"	
+#include "moto.h"
 ////////////////////////////////////////////////////////////////////////////////// 	 
 //如果使用ucos,则包括下面的头文件即可.
 #if SYSTEM_SUPPORT_UCOS
@@ -172,31 +173,38 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 			if(USART_RX_STA&0x8000)
 			{	
 	//			printf("\r\n send the message_1 \r\n\r\n");		
-				
+				enableWheels();	
 				len=USART_RX_STA&0x3f;//得到此次接收到的数据长度
-				printf("\r\n the message len you send is: \r\n\r\n");
-				printf("%s, %c\n", "len: ", len);
+//				printf("\r\n the message len you send is: \r\n\r\n");
+//				printf("%s, %c\n", "len: ", len);
 				if(USART_RX_BUF[0]==forward){
-					printf("%s\n", "0x01");	
+					MotoAhead();
+//					printf("%s\n", "0x01");	
 				}else if(USART_RX_BUF[0]==back){
-					printf("%s\n", "0x02");		
+					MotoBack();
+//					printf("%s\n", "0x02");		
 				}else if(USART_RX_BUF[0]==turn_left){
-					printf("%s\n", "0x03");				
+					leftSidesway();
+//					printf("%s\n", "0x03");				
 				}else if(USART_RX_BUF[0]==turn_right){
-					printf("%s\n", "0x04");
+					rightSidesway();
+//					printf("%s\n", "0x04");
 				}else if(USART_RX_BUF[0]==speed_up){
-					printf("%s\n", "0x05");
+//					printf("%s\n", "0x05");
 				}else if(USART_RX_BUF[0]==speed_down){
-					printf("%s\n", "0x06");
+//					printf("%s\n", "0x06");
 				}
-				for(t=0;t<len;t++)
-				{
-					USART_SendData(USART1, USART_RX_BUF[t]);//向串口1发送数据
-					while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//等待发送结束
-				}
-				printf("\r\n\r\n");//插入换行
+//				for(t=0;t<len;t++)
+//				{
+//					USART_SendData(USART1, USART_RX_BUF[t]);//向串口1发送数据
+//					while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//等待发送结束
+//				}
+//				printf("\r\n\r\n");//插入换行
 				USART_RX_STA=0;
-			}			
+			}else{
+				disenableWheels();
+			}	
+				
      } 
 #ifdef OS_TICKS_PER_SEC	 	//如果时钟节拍数定义了,说明要使用ucosII了.
 	OSIntExit();  											 
